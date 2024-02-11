@@ -48,6 +48,7 @@ body {
 	}
 }
 
+
 a {
 	transition: .3s all ease;
 	color: $primary;
@@ -1104,7 +1105,7 @@ h5,
 	}
 
 	&:hover {
-		background: $primary;
+		/*background: $primary;*/
 
 		.icon {
 			i {
@@ -1119,6 +1120,8 @@ h5,
 				background: $black;
 			}
 		}
+
+
 	}
 }
 
