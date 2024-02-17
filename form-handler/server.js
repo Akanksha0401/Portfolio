@@ -5,32 +5,31 @@ const nodemailer = require('nodemailer');
 const app = express();
 const port = 3000;
 
-// Middleware to parse incoming request bodies
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// POST endpoint to handle form submissions
+
 app.post('/submit-form', (req, res) => {
     const { name, email, subject, message } = req.body;
 
-    // Create a transporter using Nodemailer with your SMTP settings
+
     const transporter = nodemailer.createTransport({
-        service: 'Gmail', // Assuming you're using Gmail
+        service: 'Gmail',
         auth: {
-            user: 'akankshamishra22122001@gmail.com', // Your email address
-            pass: 'Mishraak@456' // Your email password or app password for Gmail
+            user: 'akankshamishra22122001@gmail.com',
+            pass: '##########'
         }
     });
 
-    // Configure the email message
     const mailOptions = {
-        from: email, // Sender's email address from the form
-        to: 'akankshamishra22122001@gmail.com', // Your email address (recipient)
+        from: email,
+        to: 'akankshamishra22122001@gmail.com',
         subject: subject,
         text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
     };
 
-    // Send the email
+
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             console.error(error);
@@ -42,7 +41,7 @@ app.post('/submit-form', (req, res) => {
     });
 });
 
-// Start the server
+
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });
